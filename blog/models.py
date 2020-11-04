@@ -5,3 +5,12 @@ class Blog(models.Model):
     name = models.TextField()
     posted_by = models.TextField()
     posted_on = models.DateTimeField()
+
+
+# class User(models.Model):
+#     name = models.TextField()
+#     description = models.TextField()
+#     mobile = models.IntegerField()
+#     email = models.TextField()
+#     posted_by = models.TextField()
+#     posted_on = models.DateTimeField()

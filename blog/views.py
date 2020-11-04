@@ -70,3 +70,4 @@ def delete_blog(request, id):
     old_blog.delete()
     
     return HttpResponse("Record Deleted")
+
