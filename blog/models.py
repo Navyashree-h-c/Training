@@ -6,11 +6,11 @@ class Blog(models.Model):
     posted_by = models.TextField()
     posted_on = models.DateTimeField()
 
-
-# class User(models.Model):
-#     name = models.TextField()
-#     description = models.TextField()
-#     mobile = models.IntegerField()
-#     email = models.TextField()
-#     posted_by = models.TextField()
-#     posted_on = models.DateTimeField()
+#Adding another model
+class User(models.Model):
+    name = models.TextField()
+    description = models.TextField()
+    mobile = models.IntegerField()
+    email = models.TextField()
+    posted_by = models.TextField()
+    posted_on = models.DateTimeField()
