@@ -50,3 +50,23 @@ def insert_blog(request):
 
     new_blog.save()
     return JsonResponse(data, safe=False)
+
+#Updation
+@csrf_exempt
+@require_http_methods(["POST"])
+def update_blog(request, id):
+    data = json.loads(request.body.decode('utf-8'))
+
+    old_blog = Blog.objects.get(pk=id)
+    old_blog.posted_by = data['postedBy']
+    old_blog.save()
+    return JsonResponse(data, safe=False)
+
+#Deletion
+@csrf_exempt
+@require_http_methods(["POST"])
+def delete_blog(request, id):
+    old_blog = Blog.objects.get(pk=id)
+    old_blog.delete()
+    
+    return HttpResponse("Record Deleted")
