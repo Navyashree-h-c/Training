@@ -1,6 +1,6 @@
 import graphene
 from blog.schema.blog_schema import Blog, BlogModel
-from blog.schema.user_schema import User, UserModel, CreateUser, UpdateUser
+from blog.schema.user_schema import User, UserModel, CreateUser, UpdateUser, DeleteUser
 
 class Query(graphene.ObjectType):
     blogs = graphene.List(Blog)
@@ -30,3 +30,4 @@ class Query(graphene.ObjectType):
 class Mutations(graphene.ObjectType):
     create_user = CreateUser.Field()
     update_user = UpdateUser.Field()
+    delete_user = DeleteUser.Field()

@@ -35,6 +35,7 @@ class CreateUser(graphene.Mutation):
         # Notice we return an instance of this mutation
         return CreateUser(user=new_user)
 
+#Updating
 class UpdateUser(graphene.Mutation):
     class Arguments:
         # The input arguments for this mutation
@@ -53,4 +54,19 @@ class UpdateUser(graphene.Mutation):
 
         old_user.save()
         # Notice we return an instance of this mutation
-        return CreateUser(user=old_user)
+        return UpdateUser(user=old_user)
+
+#Deleting
+class DeleteUser(graphene.Mutation):
+    class Arguments:
+        # The input arguments for this mutation
+        id = graphene.Int()
+
+    # The class attributes define the response of the mutation
+    message = graphene.Field(User)
+
+    def mutate(self, info, id):
+        old_user = UserModel.objects.get(pk=id)
+        old_user.delete()
+        # Notice we return an instance of this mutation
+        return DeleteUser(message=old_user)
