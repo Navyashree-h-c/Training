@@ -1,6 +1,6 @@
 import graphene
 from blog.schema.blog_schema import Blog, BlogModel
-from blog.schema.user_schema import User, UserModel
+from blog.schema.user_schema import User, UserModel, CreateUser
 
 class Query(graphene.ObjectType):
     blogs = graphene.List(Blog)
@@ -26,3 +26,6 @@ class Query(graphene.ObjectType):
 
     def resolve_user(self, info, id):
         return UserModel.objects.get(pk=id)
+
+class Mutations(graphene.ObjectType):
+    create_user = CreateUser.Field()
